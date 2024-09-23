@@ -1,8 +1,8 @@
 package app;
 
 import courses.Course;
-import courses.CourseCreator;
-import courses.CourseManager;
+import courses.CourseBuilder;
+import courses.CourseDirector;
 import enrollment.EnrollStudent;
 import enrollment.Base;
 import exports.ExportService;
@@ -17,8 +17,8 @@ public class Main {
         ExportService exportService = new JsonExportService();
         Student student = new Student("Alice", "1001");
 
-        CourseCreator courseCreator = new CourseCreator();
-        CourseManager courseManager = new CourseManager(courseCreator);
+        CourseBuilder courseCreator = new CourseBuilder();
+        CourseDirector courseManager = new CourseDirector(courseCreator);
 
         System.out.println("1. Enroll in Course");
         System.out.println("2. Complete Course");
