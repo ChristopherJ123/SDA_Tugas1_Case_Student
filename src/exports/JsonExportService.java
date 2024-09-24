@@ -4,7 +4,7 @@ import courses.Course;
 import students.Student;
 import students.Transcript;
 
-public class JsonExportService implements ExportService {
+public class JsonExportService extends ExportService {
 
     @Override
     public String exportStudent(Student student) {

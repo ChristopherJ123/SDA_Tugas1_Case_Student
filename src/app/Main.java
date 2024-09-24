@@ -3,7 +3,7 @@ package app;
 import courses.Course;
 import courses.CourseBuilder;
 import courses.CourseDirector;
-import enrollment.EnrollStudent;
+import enrollment.EnrollStudentCommand;
 import enrollment.Base;
 import exports.ExportService;
 import exports.JsonExportService;
@@ -44,7 +44,7 @@ public class Main {
                 }
 
                 course = courseBuilder.build();
-                Base enrollCommand = new EnrollStudent(student, course);
+                Base enrollCommand = new EnrollStudentCommand(student, course);
                 enrollCommand.execute();
                 break;
             case 2:

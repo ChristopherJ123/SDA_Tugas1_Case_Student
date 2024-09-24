@@ -4,8 +4,8 @@ import courses.Course;
 import students.Student;
 import students.Transcript;
 
-public interface ExportService {
-    String exportStudent(Student student);
-    String exportCourse(Course course);
-    String exportTranscript(Transcript transcript);
+public abstract class ExportService {
+    abstract public String exportStudent(Student student);
+    abstract public String exportCourse(Course course);
+    abstract public String exportTranscript(Transcript transcript);
 }
