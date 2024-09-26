@@ -29,5 +29,9 @@ public class Transcript {
     public double getGPA() {
         return gpa;
     }
+
+    public HashMap<Course, Double> getCompletedCourses() {
+        return completedCourses;
+    }
 }
 

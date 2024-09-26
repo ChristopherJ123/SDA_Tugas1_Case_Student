@@ -14,7 +14,7 @@ public class ValidateStudentMiddleware extends BaseStudentCourseMiddleware{
     @Override
     public boolean check(Student student, Course course) {
         // Cek format student ID menyesuaikan dengan NRP petra.
-        if (student.getNrp().length() != 8) {
+        if (student.getNrp().length() != 9) {
             System.out.println("[Validation error!] Format panjang NRP harus 8!");
             return false;
         } else if (String.valueOf(student.getNrp().charAt(0)).matches("[a-z]")) {

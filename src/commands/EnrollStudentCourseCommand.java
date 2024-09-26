@@ -1,13 +1,13 @@
-package enrollment;
+package commands;
 
 import courses.Course;
 import middleware.student.BaseStudentCourseMiddleware;
 import students.Student;
 
 public class EnrollStudentCourseCommand implements Command {
-    private BaseStudentCourseMiddleware middleware;
-    private Student student;
-    private Course course;
+    private final BaseStudentCourseMiddleware middleware;
+    private final Student student;
+    private final Course course;
 
     public EnrollStudentCourseCommand(BaseStudentCourseMiddleware middleware, Student student, Course course) {
         this.middleware = middleware;

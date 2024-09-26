@@ -1,5 +1,6 @@
 package enrollment;
 
+import commands.Command;
 import courses.Course;
 import middleware.student.BaseStudentCourseMiddleware;
 import students.Student;
@@ -16,8 +17,15 @@ public class EnrollmentManager {
     }
 
     public void executeCommand(Command command) {
-        command.execute();
-        history.push(command);
+        if (command.execute()) {
+            history.push(command);
+        }
+    }
+
+    public void undoCommand(Command command) {
+        if (command.undo()) {
+            history.pop();
+        }
     }
 
     public boolean isStudentEnrolledInCourse(Student student, Course course) {

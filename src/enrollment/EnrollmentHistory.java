@@ -1,7 +1,7 @@
 package enrollment;
 
-import java.util.ArrayList;
-import java.util.List;
+import commands.Command;
+
 import java.util.Stack;
 
 public class EnrollmentHistory {
@@ -11,7 +11,7 @@ public class EnrollmentHistory {
         commandHistory.push(command);
     }
 
-    public Command remove(Command command) {
+    public Command pop() {
         return commandHistory.pop();
     }
 
