@@ -19,7 +19,8 @@ public class CommandController {
 
     public void undoCommand() {
         if (!history.isEmpty()) {
-            history.pop();
+            Command command = history.pop();
+            command.undo();
             System.out.println("Undo command successfully");
         } else {
             System.out.println("There is no command to undo");
