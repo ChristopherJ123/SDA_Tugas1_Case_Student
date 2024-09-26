@@ -1,13 +1,27 @@
 package faculty;
 
-import courses.Course;
+import java.util.ArrayList;
+import java.util.List;
 
-public abstract class Faculty {
-    protected String name;
+//ini sebelumnya pakek Factory tapi kita ubah ke abstract factory
 
-    public Faculty(String name) {
-        this.name = name;
+public class Faculty {
+   private String facultyName;
+   private List<Teacher> teachers = new ArrayList<>();
+//   private List<Student> students = new ArrayList<>();
+
+
+
+    public Faculty(String facultyName) {
+        this.facultyName = facultyName;
     }
 
-    public abstract void assignToCourse(Course course);
+    public void addTeacher (Teacher teacher){
+        teachers.add(teacher);
+    }
+
+//    public void addStudent (Student student){
+//        students.add(student);
+//    }
+
 }

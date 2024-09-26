@@ -2,7 +2,7 @@ package faculty;
 
 import courses.Course;
 
-public class Assistant extends Faculty {
+public class Assistant extends Teacher {
 
     public Assistant(String name) {
         super(name);
