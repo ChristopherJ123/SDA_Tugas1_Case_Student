@@ -26,6 +26,10 @@ public class Transcript {
         System.out.println("GPA updated to " + gpa);
     }
 
+    public boolean hasDuplicateCourseFinished(Course course) {
+        return completedCourses.containsKey(course);
+    }
+
     public double getGPA() {
         return gpa;
     }

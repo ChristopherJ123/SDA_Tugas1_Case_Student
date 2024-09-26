@@ -1,14 +1,14 @@
-package middleware.student;
+package handlers.studentEnrollment;
 
 import courses.Course;
 import students.Student;
 
-public abstract class BaseStudentCourseMiddleware {
-    private BaseStudentCourseMiddleware next;
+public abstract class BaseStudentEnrollmentHandler {
+    private BaseStudentEnrollmentHandler next;
 
-    public static BaseStudentCourseMiddleware link(BaseStudentCourseMiddleware first, BaseStudentCourseMiddleware... chain) {
-        BaseStudentCourseMiddleware head = first;
-        for (BaseStudentCourseMiddleware nextInChain : chain) {
+    public static BaseStudentEnrollmentHandler link(BaseStudentEnrollmentHandler first, BaseStudentEnrollmentHandler... chain) {
+        BaseStudentEnrollmentHandler head = first;
+        for (BaseStudentEnrollmentHandler nextInChain : chain) {
             head.next = nextInChain;
             head = nextInChain;
         }

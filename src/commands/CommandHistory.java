@@ -1,10 +1,8 @@
-package enrollment;
-
-import commands.Command;
+package commands;
 
 import java.util.Stack;
 
-public class EnrollmentHistory {
+public class CommandHistory {
     private Stack<Command> commandHistory = new Stack<>();
 
     public void push(Command command) {

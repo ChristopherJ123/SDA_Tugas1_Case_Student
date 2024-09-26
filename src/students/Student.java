@@ -38,6 +38,10 @@ public class Student {
         }
     }
 
+    public void unCompleteCourse(Course course) {
+        enrolledCourses.remove(course);
+    }
+
     public Transcript getTranscript() {
         return transcript;
     }
@@ -53,4 +57,8 @@ public class Student {
     public String getNrp() { return nrp; }
 
     public String getName() { return name; }
+
+    public ArrayList<Course> getEnrolledCourses() {
+        return enrolledCourses;
+    }
 }
