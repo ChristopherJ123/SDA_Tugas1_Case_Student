@@ -20,7 +20,7 @@ public class Demo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ExportService exportService = new JsonExportService();
-        Student student = new Student("Alice", "1001");
+        Student student = new Student("Alice", "c12345678");
 
         CourseBuilder courseBuilder = new CourseBuilder(); // Builder creational pattern
         CourseDirector courseDirector = new CourseDirector(); // Director from builder
