@@ -8,7 +8,7 @@ public class JsonExportService extends ExportService {
 
     @Override
     public String exportStudent(Student student) {
-        return "{ \"name\": \"" + student.getName() + "\", \"id\": \"" + student.getStudentId() + "\" }";
+        return "{ \"name\": \"" + student.getName() + "\", \"id\": \"" + student.getNrp() + "\" }";
     }
 
     @Override

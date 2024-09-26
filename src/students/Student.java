@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 public class Student {
     private String name;
-    private String studentId;
+    private String nrp; // Rename ke NRP agar lebih merefleksikan sistem penamaan NRP petra
     private ArrayList<Course> enrolledCourses;
     private Transcript transcript;
     private boolean isHonorRoll;
 
     public Student(String name, String studentId) {
         this.name = name;
-        this.studentId = studentId;
+        this.nrp = studentId;
         this.enrolledCourses = new ArrayList<>();
         this.transcript = new Transcript();
         this.isHonorRoll = false;
@@ -21,6 +21,11 @@ public class Student {
     public void enrollInCourse(Course course) {
         enrolledCourses.add(course);
         System.out.println(name + " enrolled in " + course.getCourseName());
+    }
+
+    public void unEnrollInCourse(Course course) {
+        enrolledCourses.remove(course);
+        System.out.println(name + " unenrolled in " + course.getCourseName());
     }
 
     public void completeCourse(Course course, double grade) {
@@ -45,7 +50,7 @@ public class Student {
         return isHonorRoll;
     }
 
-    public String getStudentId() { return studentId; }
+    public String getNrp() { return nrp; }
 
     public String getName() { return name; }
 }

@@ -3,10 +3,14 @@ package app;
 import courses.Course;
 import courses.CourseBuilder;
 import courses.CourseDirector;
-import enrollment.EnrollStudentCommand;
-import enrollment.Base;
+import enrollment.EnrollStudentCourseCommand;
+import enrollment.Command;
+import enrollment.EnrollmentManager;
 import exports.ExportService;
 import exports.JsonExportService;
+import middleware.student.BaseStudentCourseMiddleware;
+import middleware.student.DuplicateStudentCourseMiddleware;
+import middleware.student.ValidateStudentMiddleware;
 import students.Student;
 
 import java.util.Scanner;
@@ -19,6 +23,13 @@ public class Main {
 
         CourseBuilder courseBuilder = new CourseBuilder();
         CourseDirector courseDirector = new CourseDirector();
+
+        // Middleware (Chain of responsibility)
+        EnrollmentManager enrollmentManager = new EnrollmentManager();
+        BaseStudentCourseMiddleware middleware = BaseStudentCourseMiddleware.link(
+                new ValidateStudentMiddleware(enrollmentManager),
+                new DuplicateStudentCourseMiddleware(enrollmentManager)
+        );
 
         System.out.println("1. Enroll in Course");
         System.out.println("2. Complete Course");
@@ -44,7 +55,7 @@ public class Main {
                 }
 
                 course = courseBuilder.build();
-                Base enrollCommand = new EnrollStudentCommand(student, course);
+                Command enrollCommand = new EnrollStudentCourseCommand(middleware, student, course);
                 enrollCommand.execute();
                 break;
             case 2:
