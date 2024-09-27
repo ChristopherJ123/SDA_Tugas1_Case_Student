@@ -1,10 +1,13 @@
 package students;
 
 import courses.Course;
+import observer.Observer;
+import observer.Subject;
 
 import java.util.HashMap;
 
-public class Transcript {
+public class Transcript implements Subject {
+    private List<Observer> observers;
     private HashMap<Course, Double> completedCourses;
     private double gpa;
 
@@ -24,6 +27,8 @@ public class Transcript {
         }
         gpa = totalGrades / completedCourses.size();
         System.out.println("GPA updated to " + gpa);
+
+        notifyObserver(); //call interface Observer
     }
 
     public boolean hasDuplicateCourseFinished(Course course) {
