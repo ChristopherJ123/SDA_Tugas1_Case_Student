@@ -1,9 +1,10 @@
 package students;
 import courses.Course;
+import observer.Observer;
 
 import java.util.ArrayList;
 
-public class Student {
+public class Student implements Observer {
     private String name;
     private String nrp; // Rename ke NRP agar lebih merefleksikan sistem penamaan NRP petra
     private ArrayList<Course> enrolledCourses;
@@ -16,6 +17,8 @@ public class Student {
         this.enrolledCourses = new ArrayList<>();
         this.transcript = new Transcript();
         this.isHonorRoll = false;
+        // subscribe to transcript
+        this.transcript.addObserver(this);
     }
 
     public void enrollInCourse(Course course) {
@@ -60,5 +63,20 @@ public class Student {
 
     public ArrayList<Course> getEnrolledCourses() {
         return enrolledCourses;
+    }
+
+    @Override
+    public void update() {
+        System.out.println("Update");
+        if (this.transcript.getGPA() > 3.5) {
+            this.isHonorRoll = true;
+            System.out.println("[Observer] Selamat kamu mencapai GPA untuk cumlaude! Pertahankan!");
+        }
+        else {
+            if (this.isHonorRoll) {
+                this.isHonorRoll = false;
+                System.out.println("[Observer] Kamu telah kehilangan status cumlaude :( Tingkatkan nilai mu 💪");
+            }
+        }
     }
 }

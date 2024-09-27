@@ -4,7 +4,9 @@ import courses.Course;
 import observer.Observer;
 import observer.Subject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Transcript implements Subject {
     private List<Observer> observers;
@@ -12,6 +14,7 @@ public class Transcript implements Subject {
     private double gpa;
 
     public Transcript() {
+        this.observers = new ArrayList<>();
         this.completedCourses = new HashMap<>();
     }
 
@@ -41,6 +44,24 @@ public class Transcript implements Subject {
 
     public HashMap<Course, Double> getCompletedCourses() {
         return completedCourses;
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        if (!observers.contains(observer)) {
+            observers.add(observer);
+        }
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObserver() {
+        for (Observer observer : observers)
+            observer.update();
     }
 }
 
