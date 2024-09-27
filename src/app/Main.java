@@ -16,7 +16,7 @@ import students.Student;
 
 import java.util.Scanner;
 
-public class Demo {
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ExportService exportService = new JsonExportService();
